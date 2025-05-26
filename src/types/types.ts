@@ -24,6 +24,34 @@ export interface Stroke {
   width: number;
 }
 
+export type Point = Position;
+
+export interface TextObject extends CanvasObject {
+  type: 'text';
+  content: string;
+  fontSize: number;
+  fontFamily: string;
+  color: string;
+}
+
+export interface ImageObject extends CanvasObject {
+  type: 'image';
+  imageUrl: string;
+}
+
+export interface ShapeObject extends CanvasObject {
+  type: 'shape';
+  shapeType: 'rectangle' | 'circle' | 'triangle';
+  fill: string;
+  stroke: string;
+  strokeWidth: number;
+}
+
+export interface ToolButtonObject extends CanvasObject {
+  type: 'tool-button';
+  toolType: ToolType;
+}
+
 export interface CanvasObject {
   id: string;
   type: 'text' | 'image' | 'shape' | 'tool-button';
