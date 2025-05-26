@@ -12,19 +12,8 @@ import { useToolbarStore } from '../store/toolbarStore';
 import type { ToolType } from '../types/types';
 
 interface ToolbarProps {
-  state: {
-    tool: ToolType;
-    penColor: string;
-    penWidth: number;
-    eraserWidth: number;
-    fontSize: number;
-    fontFamily: string;
-    shapeType: 'rectangle' | 'circle' | 'triangle';
-    fillColor: string;
-    strokeColor: string;
-    strokeWidth: number;
-  };
-  onToolChange: (tool: ToolType) => void;
+  state: ReturnType<typeof useToolbarStore>;
+  onToolChange: (tool: string) => void;
   onColorChange: (color: string) => void;
   onWidthChange: (width: number) => void;
   onFontSizeChange: (size: number) => void;
